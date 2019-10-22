@@ -17,7 +17,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('posts', function () {
-    $posts = \App\Post::all();
-    return $posts;
+Route::get('admin', function () {
+    return view('admin.dashboard');
 });

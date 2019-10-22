@@ -4,6 +4,7 @@
 use App\User;
 use App\Post;
 use App\Category;
+use App\Tag;
 
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
@@ -31,15 +32,21 @@ $factory->define(User::class, function (Faker $faker) {
 
 $factory->define(Post::class, function (Faker $faker) {
     return [
-        'title' => $faker->paragraph(5),
+        'title' => $faker->title,
         'excerpt' => $faker->paragraph(2),
-        'body' => $faker->paragraph(10),
+        'body' => $faker->text(),
         'published_at' => now(),
         'category_id' => rand(1,500),
     ];
 });
 
 $factory->define(Category::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name,
+    ];
+});
+
+$factory->define(Tag::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
     ];
